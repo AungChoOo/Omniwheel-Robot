@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src='jquery-3.3.1.min.js'></script>
+		<link rel="stylesheet" href="app.css">
+		<script async src="app.js"></script>
+		<title>Omni Wheel</title>
+	</head>
+	<body class="noselect" align="center">
+
+		<header>
+			<h1>Omni Wheel Mobile Robot</h1>
+		</header>
+		
+		<div id="OTA">
+			<h2>ESP32 Firmware Update</h2>
+			<label id="latest_firmware_label">Latest Firmware: </label>
+			<div id="latest_firmware"></div> 
+			<input type="file" id="selected_file" accept=".bin" style="display: none;" onchange="getFileInfo()" />
+			<div class="buttons">
+				<input type="button" value="Select File" onclick="document.getElementById('selected_file').click();" />
+				<input type="button" value="Update Firmware" onclick="updateFirmware()" />
+			</div>
+			<h4 id="file_info"></h4>	
+			<h4 id="ota_update_status"></h4>
+		</div>
+		<div id="IMU">
+			<h2>IMU sensor data</h2>
+			<label for="roll_reading">AX : </label>
+			<div id="roll_reading"></div> 
+			<label for="pitch_reading">AY : </label>
+			<div id="pitch_reading"></div>
+			<label for="yaw_reading">AZ : </label>
+			<div id="yaw_reading"></div>
+		</div>
+		<div id ="Battery">
+			<h2>Battry data</h2>
+			<label for="percentage">Percentage : </label>
+			<div id="percentage">%</div>
+		</div>
+		<table id="mainTable" style="width:200px;margin:auto;table-layout:fixed" CELLSPACING=10>
+			<tr>
+				<td ontouchstart='click_button("L")' ontouchend='click_button("0")'><span class="circularArrows" >&#8630;</span></td>
+				<td style="background-color:white;box-shadow:none"></td>
+				<td ontouchstart='click_button("R")' ontouchend='click_button("0")'><span class="circularArrows" >&#8631;</span></td>
+
+			</tr>
+
+			<tr>
+				<td ontouchstart='click_button("5")' ontouchend='click_button("0")'><span class="arrows" >&#11017;</span></td>
+				<td ontouchstart='click_button("1")' ontouchend='click_button("0")'><span class="arrows" >&#8679;</span></td>
+				<td ontouchstart='click_button("6")' ontouchend='click_button("0")'><span class="arrows" >&#11016;</span></td>
+			</tr>
+			
+			<tr>
+				<td ontouchstart='click_button("3")' ontouchend='click_button("0")'><span class="arrows" >&#8678;</span></td>
+				<td></td>    
+				<td ontouchstart='click_button("4")' ontouchend='click_button("0")'><span class="arrows" >&#8680;</span></td>
+			</tr>
+			
+			<tr>
+				<td ontouchstart='click_button("7")' ontouchend='click_button("0")'><span class="arrows" >&#11019;</span></td>
+				<td ontouchstart='click_button("2")' ontouchend='click_button("0")'><span class="arrows" >&#8681;</span></td>
+				<td ontouchstart='click_button("8")' ontouchend='click_button("0")'><span class="arrows" >&#11018;</span></td>
+			</tr>
+
+		</table>
+
+	</body>
+<html>
